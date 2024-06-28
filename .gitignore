@@ -1,0 +1,10 @@
+# Ignore the folder 1Licenta
+1Licenta/
+
+# Ignore all .idea files and folders
+.idea/
+
+
+
+# Ignore any .idea directories found inside any folders
+**/.idea/
