@@ -14,7 +14,8 @@ CAVA_MATERIALE/**/antrenare
 CAVA_MATERIALE/**/CAVA-2023-Lucrare2-Subiect
 CAVA_MATERIALE/**/CAVA-2023-Lucrare2-Subiect/
 CAVA_MATERIALE/Facial Detector project/data
-CAVA_MATERIALE/laborator/*.rar
+CAVA_MATERIALE/laborator/**/*.rar
+CAVA_MATERIALE/laborator/**/*.zip
 CAVA_MATERIALE/laborator/**/data
 CAVA_MATERIALE/laborator/materiale
 
