@@ -1,16 +1,9 @@
 # Ignore the folder 1Licenta
 1Licenta/
-1Licenta
 
 # Ignore all .idea files and folders
 .idea/
 
-
-
-CAVA_MATERIALE/**/date_antrenare
-CAVA_MATERIALE/**/evaluare
-CAVA_MATERIALE/**/evaluare2
-CAVA_MATERIALE/**/antrenare
 
 
 # Ignore any .idea directories found inside any folders
