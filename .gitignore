@@ -11,7 +11,12 @@ CAVA_MATERIALE/**/date_antrenare
 CAVA_MATERIALE/**/evaluare
 CAVA_MATERIALE/**/evaluare2
 CAVA_MATERIALE/**/antrenare
-
+CAVA_MATERIALE/**/CAVA-2023-Lucrare2-Subiect
+CAVA_MATERIALE/**/CAVA-2023-Lucrare2-Subiect/
+CAVA_MATERIALE/Facial Detector project/data
+CAVA_MATERIALE/laborator/*.rar
+CAVA_MATERIALE/laborator/**/data
+CAVA_MATERIALE/laborator/materiale
 
 # Ignore any .idea directories found inside any folders
 **/.idea/
