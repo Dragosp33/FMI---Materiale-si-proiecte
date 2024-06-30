@@ -1,0 +1,46 @@
+inclusion-wise:
+An inclusion-wise maximal set among a collection of sets is a set that is not a subset of some other set in the collection. An inclusion-wise minimal set among a collection of sets is a set in the collection that is not a superset of any other set in the collection.
+
+------------------------------------------------------------------------------------------------------------
+
+a co-connected component of a graph is a maximal subgraph in which any two vertices are connected 
+by an edge or by a path of non-adjacent edges.
+
+More formally, a co-connected component of a graph G is a subgraph C such that:
+
+C is connected, meaning there is a path between any two vertices in C.
+	For any two vertices u and v in C, if u is not adjacent to v in C, there exists a path in C between
+u and v that does not use any edges from G\ C (the edges that are not in C).
+	In other words, a co-connected component is a maximal connected subgraph in which any two vertices are either directly connected by an edge or indirectly connected by a path that avoids using edges outside of the component.
+
+	Co-connected components can be thought of as subgraphs that capture the maximum connectivity within themselves while minimizing the connections outside of the component.
+
+
+------------------------------------------------------------------------------------------------------------
+
+
+**** MODULES:
+  oricare ar fi u, v in M si x in V\M => x e adiacent lui u si v sau nu e al niciunuia
+  u, v in M => N(u) \ M = N(v) \ M
+
+
+
+----------------------------------------------------------------------------------------------------------
+P3: A three-vertex induced path refers to a path consisting of three consecutive vertices, where each pair of consecutive vertices is connected by an edge, and no additional edges connect any other pair of vertices within this subgraph. In other words, it is a straight line with three vertices, and no other edges are present within this subset.
+
+On the other hand, a triangle consists of three vertices where each vertex is connected to the other two vertices, forming a complete graph on three vertices. It includes additional edges connecting all pairs of vertices, which is not compatible with the definition of a three-vertex induced path.
+
+
+P4:
+ A P4 graph satisfies the definition of a path graph and does not contain any cycles.
+
+Unlike the case of a triangle, which does not count as a three-vertex induced path (P3), a P4 graph itself represents a valid example of a four-vertex induced path. It is a straight path with four vertices, satisfying the criteria of a path graph.
+
+Therefore, a P4 graph can be considered as a specific instance of a four-vertex induced path, where there are no additional edges connecting non-adjacent vertices.
+
+
+
+
+
+
+

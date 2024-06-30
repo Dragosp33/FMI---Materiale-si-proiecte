@@ -1,0 +1,27 @@
+Stare: informatiile blocurilor de pe fiecare stiva
+tip de date: lista de liste de stringuri
+
+
+Dați exemplu de stare cu minim 5 fantome în care niciuna nu se poate mișca.
+bs bs bs bs bs
+0
+n n
+l
+
+
+Pentru o stare cu S stive, din care SV sunt vide, iar dintre blocurile aflate în vârfuri de stive avem NL blocuri libere,
+NN blocuri neutre, NF blocuri fantomă și restul speriate,
+care este numărul maxim de succesori pe care îl poate avea configurația?
+E mereu un număr fix sau poate depinde de restul de blocuri din stive?
+(dați un exemplu concret);
+numărul de succesori trebuie exprimat în parametrii problemei (S,SV,NN,NL,NF).
+
+(NL+NN)*(S-NF-1)
+Nu e numar fix, exemplu:
+n bd
+n l l l l
+n bd
+n n
+nr succesori=1
+
+

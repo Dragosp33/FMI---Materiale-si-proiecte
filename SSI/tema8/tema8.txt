@@ -1,0 +1,13 @@
+a)      - Adevarat, pentru ca dintr-o prajitura nu putem extrage ingredientele
+separat
+
+b) Fals, in 2007 a fost demonstrat ca MD5 este vulnerabila la coliziuni. Cu ajutorul
+functiei md5, s-au gasit 2 certificate diferite private-public key cu acelasi hash
+
+c) Adevarat
+d) Adevarat
+e) fals, intrucat, criptarea se face avand ca posibilitate si decriptarea, ceea ce incalca
+regula one-way a hashului
+f) fals, cu cat o functie hash este mai rapida (mai rapid de calculat hashul), cu atat este
+mai vulnerabila la brute force
+e) fals, un md5 reverse la 095b2626c9b6bad0eb89019ea6091bd9 = parola123

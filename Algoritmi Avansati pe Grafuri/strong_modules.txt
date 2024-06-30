@@ -1,0 +1,117 @@
+Start with the original graph.
+
+Choose an arbitrary vertex v from the graph.
+
+Perform a breadth-first search (BFS) or depth-first search (DFS) starting from vertex v to explore its connected component. This will give you one strong module.
+
+Remove the vertices in the strong module found in step 3 from the original graph.
+
+Repeat steps 2-4 until there are no more vertices remaining in the original graph.
+
+The strong modules obtained from each iteration of steps 2-4 are the strong modules of the original graph.
+
+
+
+
+#include <iostream>
+#include <vector>
+#include <stack>
+#include <algorithm>
+#include <set>
+using namespace std;
+
+void tarjanStrongModules(int v, vector<vector<int>>& graph, vector<int>& lowLink, vector<int>& index, vector<bool>& onStack, stack<int>& nodeStack, vector<set<int>>& strongModules, int& currentIndex)
+{
+    index[v] = currentIndex;
+    lowLink[v] = currentIndex;
+    currentIndex++;
+    nodeStack.push(v);
+    onStack[v] = true;
+
+    for (int neighbor : graph[v])
+    {
+        if (index[neighbor] == -1)
+        {
+            tarjanStrongModules(neighbor, graph, lowLink, index, onStack, nodeStack, strongModules, currentIndex);
+            lowLink[v] = min(lowLink[v], lowLink[neighbor]);
+        }
+        else if (onStack[neighbor])
+        {
+            lowLink[v] = min(lowLink[v], index[neighbor]);
+        }
+    }
+
+    if (lowLink[v] == index[v])
+    {
+        set<int> module;
+        int node;
+        do
+        {
+            node = nodeStack.top();
+            nodeStack.pop();
+            onStack[node] = false;
+            module.insert(node);
+        } while (node != v);
+
+        strongModules.push_back(module);
+    }
+}
+
+vector<set<int>> findStrongModules(vector<vector<int>>& graph, int n)
+{
+    vector<int> lowLink(n, -1);
+    vector<int> index(n, -1);
+    vector<bool> onStack(n, false);
+    stack<int> nodeStack;
+    vector<set<int>> strongModules;
+    int currentIndex = 0;
+
+    for (int i = 0; i < n; ++i)
+    {
+        if (index[i] == -1)
+        {
+            tarjanStrongModules(i, graph, lowLink, index, onStack, nodeStack, strongModules, currentIndex);
+        }
+    }
+
+    return strongModules;
+}
+
+int main()
+{
+    int n, m;
+    cout << "Enter the number of vertices: ";
+    cin >> n;
+    cout << "Enter the number of edges: ";
+    cin >> m;
+
+    vector<vector<int>> graph(n);
+    cout << "Enter the edges:\n";
+    for (int i = 0; i < m; ++i)
+    {
+        int u, v;
+        cin >> u >> v;
+        graph[u].push_back(v);
+    }
+
+    vector<set<int>> strongModules = findStrongModules(graph, n);
+
+    if (strongModules.empty())
+    {
+        cout << "No strong modules found.\n";
+    }
+    else
+    {
+        cout << "Strong Modules:\n";
+        for (const set<int>& module : strongModules)
+        {
+            for (int vertex : module)
+            {
+                cout << vertex << " ";
+            }
+            cout << endl;
+        }
+    }
+
+    return 0;
+}

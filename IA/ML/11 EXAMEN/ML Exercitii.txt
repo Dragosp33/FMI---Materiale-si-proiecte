@@ -1,0 +1,269 @@
+1. Care sunt punctele in care dreapta de separare a percetronului w = [-4, 2], b = [2] intersecteaza axele?
+A. (0, -1) si (0.5, 0)
+B. (-1, 0) si (0, 0.5)
+C. (0, 0.5) si (0.25, 0)
+D. (0.5, 0) si (0, -0.25)
+
+x2. Care din urmatorii algoritmi se foloseste pentru optimizare ponderilor retelelor neuronale?
+A. Dropout
+B. ADALINE
+C. Naive Bayes
+D. SGD cu momentum x
+
+3. Care din urmatoarele metode este folosita pentru a combate bias-ul modelului?
+A. Alegerea unui model mai complex x
+B. Reducerea numarului de exemple
+C. F1-score
+D. Early stopping
+
+4. Care ditre aceste optiuni pot sa ajute in imbunatatirea capacitatii de generalizarea unui model de invatare automata?
+A. Oprirea invatarii atunci cand eroarea pe setul de validare incepe sa creasca
+B. Cresterea numarului de epoci de invatare
+C. Micsorarea setului de antrenare
+D. Cresterea numarului de parametri antrenabili ai modelului.
+
+5. Care este scufundarea asociata functie nucleu RBF?
+A. f(x) = x
+B. k(x,y) = exp(- d(x,y) / (2 * sigma)), unde d(x,y) denote distanta Euclidiana
+C. f(x) = sqrt(x)
+D. Nu exista
+
+6. In urma antrenarii unui model de invatare automata avem urmatoarele masuri - True Positive = 30, False Positive = 3. Calculati masura Precision?
+A. 0.74
+B. 0.80
+C. 0.67
+D. 0.91????
+
+7. Cati clasificatori binari vor fi antrenati pentru o problema multi-class cu 7 clase folosind schema de combinare one-vs-one?
+A. 1
+B. 21
+C. 42
+D. 7
+
+8. In urma antrenarii unui model de invatare automata avem urmatoarele masuri - Precision = 0.8, Recall=0.9. Calculati masura F1?
+A. 0.72
+B. 0.89
+C. 0.84 x
+D. 0.64
+
+9. Fiind date etichetele y = [23, 14, 30, 45, 18, 31] si predictiile aferente p = [26, 20, 39, 38, 18, 33], care este masura Kendall Tau?
+A. 0.4
+B. 1.0
+C. 0.6
+D. 0.2
+
+10. Daca avem probabilitatile pentru evenimentele P(A)=0.4, P(B)=0.8, P(B|A)=0.5. Calculati probabilitea P(A|B) folosind regula lui Bayes.
+A. 0.5
+B. 0.4
+C. 0.25 x
+D. 0.65
+
+
+
+
+
+=====================================================================================================
+					MODELUL		2						
+=====================================================================================================
+
+
+1. Care dintre urmatoarele abordari nu este o metoda de scalare a caracteristicilor (feature scaling)?
+A. Standardizarea
+B. Normalizarea L2
+C. Scalarea MinMax
+D. Dropout
+
+2. Care este volumul de output al unui strat convolutional de input 15x15x3, avand 5 filtre de dimensiune 3, stride 1, padding 1?
+A. 8x8x5
+B. 15x15x5
+C. 4x4x8
+D. 7x7x6
+
+3. Care dintre urmatoarele tehnici nu este o metoda de prevenire a overfittingului?
+A. Utilizarea unei rate de invatare adaptiva
+B. Oprirea timpurie a antrenarii
+C. Utilizarea regularizarii
+D. Initializarea ponderilor cu 0
+
+4. Dupa antrenarea unei retele neuronale cu cate 100 de perceptroni pe 5 straturi ascunse, timp de 1000 de epoci, folosind o rata de invatare de 0.1, obtinem o acuratete de 99.95% pe multimea de antrenare si 61.23% pe multimea de test. Cum interpretati rezultatele si ce variante putem incerca pentru imbunatatirea performantei?
+A. Modelul face underfit. Ar trebui sa crestem numarul de perceptroni sau numarul de straturi ascunse utilizate.
+B. Modelul face overfit. Ar trebui sa utilizam o rata de invatare mai mica.
+C. Modelul face overfit. Ar trebui sa utiliza mai putine exemple de antrenare.
+D. Rezultatele obtinute sunt satisfacatoare, putem considera ca modelul nostru este optim.
+
+5. Avand urmatoarele date de antrenare: X_train = ((2,2),(2,1),(1,1),(2,0),(-1,0),(-1,2)) Y_train = (1,1,1,-1,-1,-1) si datele de test: X_test = ((1,1), (2,-1), (1,3), (-1,-1)), Y_test = (1,1,-1,-1), care este acuratetea metodei 3-NN pe multimea de antrenare?
+A. 1
+B. 1/2
+C. 2/3
+D. 5/6
+
+6. Cand este mai eficient sa folosim reprezentarea primala a datelor?
+A. Cand avem o problema de clasificare binara (cu doua clase)
+B. Cand avem o problema de clasificare cu foarte multe clase (mai mult de doua)
+C. Cand numarul de trasaturi este mai mare decat numarul de exemple
+D. Cand numarul de trasaturi este mai mic decat numarul de exemple
+
+7. Fie f(x,y,z) = xy + 2z, care sunt valorile derivatelor partiale df/dx, df/dy, df/dz, pentru x = 1, y = 2, z = 3?
+A. df/dx = 1, df/dy = 2, df/dz = 1
+B. df/dx = 2, df/dy = 1, df/dz = 2
+C. df/dx = 2, df/dy = 1, df/dz = 3
+D. df/dx = 4, df/dy = 2, df/dz = 1
+
+8. Care dintre urmatoarele masuri calculeaza procentajul exemplelor relevante identificate in raport cu numarul total de exemple relevante?
+A. Recall
+B. Precizie
+C. MSE
+D. F1
+
+9. Care dintre urmatoarele afirmatii despre retele neuronale convolutionale este falsa?
+A. Pot fi folosite atat pe imagini, cat si pe date de tip text.
+B. Nu pot fi utilizare pentru detectia de obiecte.
+C. Arhitectura clasica este formata din straturi convolutionale, straturi de pooling si straturi dense.
+D. Straturile de pooling miscoreaza dimensiunea activarilor, limitand cantitatea de informatie pierduta.
+
+10. Care nu este o metoda de evitarea suprainvatarii?
+A. adaugarea regularizarii
+B. adaugarea de perceptroni pe straturile ascunse
+C. adaugarea de exemple noi
+D. adaugarea unui strat de dropout
+
+
+
+
+
+
+
+====================================================================================================
+					MODELUL		3
+====================================================================================================
+
+
+1. Functia de scufundare (x1, x2) -> (z1, z2, z3, z4), cu z1 = x1 * x2, z2 = x2 * x1, z3 = x1^2, z4= x2^4, este un caz particular corespunzator functiei kernel:
+A. Liniare (?>?????)
+B. Polinomiale
+C. Gaussiene
+D. Duale
+
+2. Dupa antrenarea unei retele neuronale cu cate 100 de perceptroni pe 5 straturi ascunse, timp de 100 de epoci, folosind o rata de invatare de 0.0001, obtinem o acuratete de 42.25% pe multimea de antrenare si 41.23% pe multimea de test. Cum interpretati rezultatele si ce variante putem incerca pentru imbunatatirea performantei?
+A. Modelul face underfit. Ar trebui sa crestem rata de invatare.
+B. Modelul face overfit. Ar trebui sa utilizam early stopping folosind o multime de validare pentru a seta numarul optim de epoci.
+C. Rezultatele obtinute sunt satisfacatoare, putem considera ca modelul nostru este optim.
+D. Modelul face overfit. Ar trebui sa scadem treptat rata de invatare in functie de valoarea functiei de cost.
+
+3. Care din urmatoarele functii este o functie de activare?
+A. MSE
+B. Leave-one-out
+C. SGD
+D. Tangenta hiperbolica
+
+4. Care din urmatoarele functii de activare aduce output-ul in intervalul [0, infinit)?
+A. Leaky ReLU
+B. ReLU
+C. ELU
+D. Tangenta Hiperbolica
+
+5. Cati clasificatori binari trebuie antrenati pentru a rezolva o problema cu 6 clase folosind metoda One vs One?
+A. 6
+B. 25
+C. 15
+D. 30
+
+6. Care din urmatoarele metode este folosita pentru imbunatatirea capacitatii de generalizare a unui model?
+A. Adaugarea regularizarii L2
+B. MLP
+C. Adaugarea mai multor straturi
+D. Reducerea numarului de exemple
+
+7. Pentru documentele de antrenare: ['Ana are mere', 'Ana pregateste placinta cu mere', 'Ana cumpara portocale'] si documentul de test ['Poti face placinta din portocale'], care este reprezentarea documentului 'Ana pregateste placinta cu mere' folosind modelul BOW?
+A. [1 0 1 1 1 1 0 0 0 0]
+B. [1 0 1 1 1 1 0 0]
+C. [0 0 0 1 1 1 1 1 0 0 0 0 0 0 0]
+D. [0 0 0 1 1 1 1 1 0 0 0]
+
+8. Care este rezultatul aplicarii functiei de activare ReLU(x) unde x = -227.09?
+A. 1
+B. 227.09
+C. 0
+D. -227
+
+9. Avem 10 perechi concordante (P) si 4 perechi discordante (Q), n=7. Cat este corelatia Kendel Tau?
+A. 0.81
+B. 0.52
+C. 0.28
+D. 0.44
+
+10. In cazul unui model one-versus-all, care este principala diferenta in utilizarea functiei de pierdere hinge versus cross-entropy?
+A. Hinge permite continuarea optimizarii in cazul in care marginea dintre scoruri este suficient de mare
+B. Cross-entropy permite continuarea optimizarii in cazul in care marginea dintre scoruri este prea mica
+C. Cross-entropy permite continuarea optimizarii in cazul in care marginea dintre scoruri este suficient de mare
+D. Modele sunt in esenta echivalente
+
+
+
+
+
+====================================================================================================
+					MODELUL		4
+====================================================================================================
+
+
+1. Care este precizia unui clasificator daca etichetele corecte sunt y = [0, 1, 1, 1, 0, 0, 0, 0] si cele prezise sunt y_hat = [0, 0, 0, 1, 0, 0, 1, 1]?
+A. 0.5
+B. 0.99
+C. 0.33
+D. 0.45
+
+2. Cat este valoarea functiei de pierdere data de media patratelor erorilor daca etichetele corecte sunt y = [100, -25, 0.5] si etichetele prezise sunt y_hat = [101, -23, 0]?
+A. 1.7
+B. 1.16
+C. 1.1
+D. 1.75
+
+3. Fie urmatoarele probabilitati pentru evenimentele A, B, P(A)=0.3 P(B)=0.5 P(A|B)=0.33, care este valoarea P(B|A)?
+A. 0.45
+B. 0.75
+C. 0.65
+D. 0.55
+
+4. Care este eticheta unui exemplu de testare t = [5, 3, 8] daca aplicam metoda celor mai apropiati vecini cu k = 1 si distanta L1 avand datele de antrenare X = [[1, 4, 1], [5, 4, 8], [2, 30, 5], [1, 1, 9]], Y = [1, 2, 3, 2]?
+A. 2
+B. 3
+C. 1
+D. 0
+
+5. Ce tip de metrica poate obtine 100% acuratete pe datele de antrenare pentru urmatorul set de puncte 2D [([3, 3], 1), ([5, 8], 0), ([5, 5], 0), ([2, 2], 1), ([0, 1], 1), ([5, 9], 0)] considerand un clasificator KNN cu un singur vecin?
+A. Cosinus
+B. L1
+C. L2
+D. Niciunul dintre raspunsuri
+
+6. Fiind date etichitele (1, 2, 1, 1, 2, 1, 1, 1) si predictiile (1, 2, 1, 2, 2, 2, 1, 2), care sunt acuratetea si scorul f1?
+A. acc = 0.5 f1 = 0.66
+B. acc = 0.62 f1 = 0.75
+C. acc = 0.62 f1 = 0.66
+D. acc = 0.75 f1 = 0.75
+
+7. Care sunt valorile urmatoarelor exemple de antrenare dupa aplicarea normalizarii L1: E_1 = [-5, -10, -10], E_2 = [-3, -2, 0] ?
+A. E1 = [0.2, 0.4, 0.4], E2 = [0.6, 0.4, 0]
+B. E1 = [-0.2, -0.4, -0.4], E2 = [-0.6, -0.4, 0]
+C. E1 = [-0.5, -0.1, -0.1], E2 = [-0.2, -0.3, 0]
+D. E1 = [-2.2, -4.4, -2.4], E2 = [-2.6, -1.4, 0]
+
+8. Care este acuratetea unui clasificator daca etichetele corecte sunt y = [0, 1, 1, 0, 0, 0, 1, 1] si cele prezise sunt y_hat = [1, 0, 1, 0, 0, 1, 1, 1]?
+A. 1
+B. 0.625
+C. 0.6
+D. 0.6
+
+9. Care este valoarea functiei de pierdere MSE pentru urmatoarele valori prezise y_pred = [0.7, 0.1, 0.7, 0.8] si urmatoarele etichete y=[1, 0, 1, 1]?
+A. 0.3315
+B. 0.2875
+C. 0.0575
+D. 0.0715
+
+10. Care dintre urmatoarele este o tehnica folosita pentru SVM in contextul a mai mult de doua clase?
+A. One versus all
+B. Split group classification
+C. N way split
+D. All versus all
+

@@ -1,0 +1,250 @@
+// Require a modern version of Bison
+%require "3.5"
+
+// Generate C++ code
+%language "c++"
+
+// Use a type-save variant data structure for storing values
+%define api.value.type variant
+
+// Generate the various `make_<TOKEN>` functions
+%define api.token.constructor
+
+// Include the common interfaces in the generated header
+%code requires {
+    #include "common.hpp"
+}
+
+// Declare the `yylex` method, which will be defined in the lexer
+%code {
+    YY_DECL;
+}
+
+%%
+
+%token CLASS_KEYWORD;
+
+%token PUBLIC_KEYWORD;
+%token PROTECTED_KEYWORD;
+%token PRIVATE_KEYWORD;
+
+%token FINAL_KEYWORD;
+%token STATIC_KEYWORD;
+
+%token IF_KEYWORD;
+%token WHILE_KEYWORD;
+%token RETURN_KEYWORD;
+
+%token OPEN_PARENS;
+%token CLOSE_PARENS;
+%token OPEN_BRACKET;
+%token CLOSE_BRACKET;
+%token OPEN_SQUARE_BRACKET;
+%token CLOSE_SQUARE_BRACKET;
+%token EQUALS;
+%token COMMA;
+%token SEMICOLON;
+%token DOT;
+%token PLUS;
+%token MINUS;
+%token LESS_THAN;
+%token GREATER_THAN;
+
+// Operator precedence
+%left LESS_THAN GREATER_THAN;
+%left PLUS MINUS;
+
+%token <std::string> IDENTIFIER;
+%token <int> NUMBER;
+%token <std::string> STRING;
+
+class_definition:
+    access_modifier CLASS_KEYWORD IDENTIFIER
+    OPEN_BRACKET class_body CLOSE_BRACKET
+    {
+        std::cout << "Defining class " << $3 << '\n';
+    }
+
+%nterm class_body;
+class_body:
+    definitions
+
+definitions:
+    %empty | definition definitions
+
+definition:
+    class_variable_definition | method_definition
+
+class_variable_definition:
+    access_modifier mutability_modifier storage_modifier type_identifier name optional_initializer SEMICOLON
+    {
+        std::cout << "Defining variable " << $5 << '\n';
+    }
+
+method_definition:
+    access_modifier mutability_modifier storage_modifier type_identifier name
+    OPEN_PARENS method_arguments CLOSE_PARENS
+    OPEN_BRACKET method_body CLOSE_BRACKET
+    {
+        std::cout << "Defining method " << $5 << '\n';
+    }
+
+method_arguments:
+    %empty
+    | argument
+    | argument COMMA method_arguments
+
+argument:
+    type_identifier IDENTIFIER
+
+method_body:
+    statements
+
+statements:
+    %empty | statement statements
+
+statement:
+    variable_declaration
+    | assignment
+    | method_call SEMICOLON
+    | if_statement
+    | while_statement
+    | return_statement
+
+if_statement:
+    IF_KEYWORD condition block
+    {
+        std::cout << "if block\n";
+    }
+
+while_statement:
+    WHILE_KEYWORD condition block
+    {
+        std::cout << "while block\n";
+    }
+
+condition:
+    OPEN_PARENS expression CLOSE_PARENS
+
+block:
+    OPEN_BRACKET statements CLOSE_BRACKET
+
+variable_declaration:
+    type_identifier name optional_initializer SEMICOLON
+    {
+        std::cout << "Defining variable " << $2 << '\n';
+    }
+
+assignment:
+    name initializer SEMICOLON
+    {
+        std::cout << "Assigning to variable " << $1 << '\n';
+    }
+
+method_call:
+    method_reference
+    OPEN_PARENS actual_parameters CLOSE_PARENS
+    {
+        std::cout << "Calling method " << $1 << '\n';
+    }
+
+return_statement:
+    RETURN_KEYWORD SEMICOLON
+    | RETURN_KEYWORD expression SEMICOLON
+
+actual_parameters:
+    %empty
+    | value
+    | value COMMA actual_parameters
+
+value:
+    name | expression
+
+%nterm expression;
+expression:
+    expression PLUS expression
+    | expression MINUS expression
+    | expression LESS_THAN expression
+    | expression GREATER_THAN expression
+    | method_call
+    | name
+    | literal
+
+%nterm <std::string> method_reference;
+method_reference:
+    name
+    { $$ = $1; }
+    | name DOT method_reference
+    { $$ = $1 + "." + $3; }
+
+%nterm <AccessModifier> access_modifier;
+access_modifier:
+    %empty
+    { $$ = AccessModifier::DEFAULT; }
+    | PUBLIC_KEYWORD
+    { $$ = AccessModifier::PUBLIC; }
+    | PROTECTED_KEYWORD
+    { $$ = AccessModifier::PROTECTED; }
+    | PRIVATE_KEYWORD
+    { $$ = AccessModifier::PRIVATE; }
+
+%nterm <MutabilityModifier> mutability_modifier;
+mutability_modifier:
+    %empty
+    { $$ = MutabilityModifier::MUTABLE; }
+    | FINAL_KEYWORD
+    { $$ = MutabilityModifier::FINAL; }
+
+%nterm <StorageModifier> storage_modifier;
+storage_modifier:
+    %empty
+    { $$ = StorageModifier::INSTANCE; }
+    | STATIC_KEYWORD
+    { $$ = StorageModifier::STATIC; }
+
+type_identifier:
+    IDENTIFIER
+    {
+        std::cout << "Referencing object type " << $1 << '\n';
+    }
+    | IDENTIFIER OPEN_SQUARE_BRACKET CLOSE_SQUARE_BRACKET
+    {
+        std::cout << "Referencing array type " << $1 << "[]" << '\n';
+    }
+
+%nterm <std::string> name;
+name:
+    IDENTIFIER
+
+optional_initializer:
+    %empty | initializer
+
+initializer:
+    EQUALS expression
+
+%nterm <std::string> literal;
+literal:
+    STRING | NUMBER
+    { $$ = std::to_string($1); }
+
+%%
+
+namespace yy
+{
+    // Report an error to the user.
+    void parser::error(const std::string& message)
+    {
+        std::cerr << message << '\n';
+    }
+}
+
+int main(int argc, char* argv[])
+{
+    if (argc > 1)
+    {
+        freopen(argv[1], "r", stdin);
+    }
+
+    yy::parser java_parser;
+    return java_parser();
+}

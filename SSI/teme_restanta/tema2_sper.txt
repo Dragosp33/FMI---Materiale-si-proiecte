@@ -1,0 +1,4 @@
+positions: p0, p1, ..., pn;
+pk+1 = pk + deltaT * u
+
+knowing that u 

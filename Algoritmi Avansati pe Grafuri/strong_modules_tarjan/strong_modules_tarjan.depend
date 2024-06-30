@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1686130216 source:d:\1 facultate\aga\strong_modules_tarjan\main.cpp
+	<iostream>
+	<vector>
+	<stack>
+	<algorithm>
+

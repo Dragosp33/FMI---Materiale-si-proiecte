@@ -1,0 +1,9 @@
+subiectul 1:
+a) - conecteaza graful: union_find
+b) - excentricitatea ecc(s) = max(distanta(s,v)); aplica bfs -> gaseste toate distantele, ia distanta maxima
+
+subiectul 2:
+a) dag - detecteaza ciclu -> dfs
+b) distanta intre surse si destinatii -> vezi dag
+
+subiect 3:

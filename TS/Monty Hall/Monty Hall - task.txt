@@ -1,0 +1,30 @@
+In the Monty Hall problem, you are a contestant on a game show. There are three doors, behind one of which is a car, and behind the other two are goats. You initially choose one door. After your choice, the host, who knows what is behind each door, opens one of the remaining doors revealing a goat. Now, you have the option to stick with your original choice or switch to the other unopened door. The question is: What is the probability of winning the car if you stick with your original choice versus if you switch?
+
+The code begins with importing necessary libraries such as random, matplotlib.pyplot, seaborn, and pandas. It then defines two functions: MontyHall and MonteCarlo.
+
+The MontyHall function represents the game itself. It starts by creating a list usi that represents the doors, where 1 represents the car and 0 represents a goat. The list is then shuffled randomly using the shuffle function from the random module.
+
+Next, the contestant randomly chooses one door by using the choice function from the random module. The host then opens one of the remaining doors that contains a goat, and this door is stored in the variable usa_deschisa.
+
+The function calculates the probability of winning based on two scenarios:
+
+Sticking with the original choice (catig_usaVeche).
+Switching to the other unopened door (catig_usaNoua).
+Finally, the function returns the results for both scenarios.
+
+The MonteCarlo function performs Monte Carlo simulation to estimate the probabilities of winning in both scenarios. The function takes a parameter n representing the number of simulations to run.
+
+Inside the function, two variables castig_usaVeche and castig_usaNoua are initialized to keep track of the number of wins in each scenario. A loop runs n iterations, calling the MontyHall function in each iteration and updating the win counts accordingly.
+
+After the loop, the function prints the results, showing the number of wins and the win probabilities for both scenarios.
+
+The last part of the code prompts the user to enter the number of simulations they want to run and calls the MonteCarlo function with the specified number.
+
+The conclusion mentioned in the code states that it is more advantageous to switch doors. This conclusion is based on the observed probabilities from running the Monte Carlo simulations.
+
+
+
+
+
+
+

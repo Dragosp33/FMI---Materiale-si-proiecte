@@ -1,0 +1,30 @@
+Code for Maximal Strong Modules:
+
+The function tarjanStrongModules implements the Tarjan's algorithm for finding strongly connected components. It takes a vertex v and performs a depth-first search to find a strong module starting from v.
+The function maintains several data structures:
+lowLink keeps track of the lowest index reachable from a given vertex during the depth-first search.
+index assigns a unique index to each vertex, initialized as -1 to indicate unvisited vertices.
+onStack keeps track of whether a vertex is currently on the stack during the depth-first search.
+nodeStack is a stack data structure that stores the vertices visited during the search.
+strongModules is a vector of sets that stores the maximal strong modules found.
+currentIndex keeps track of the current index during the search.
+The function starts by assigning the current index to v, updating lowLink and index, and pushing v onto the stack.
+It then iterates through the neighbors of v. If a neighbor has not been visited (index[neighbor] == -1), the function recursively calls tarjanStrongModules on that neighbor, updating the lowLink of v based on the lowest lowLink value encountered.
+If a neighbor is already on the stack (onStack[neighbor] == true), it means there is a back edge, and the lowLink of v is updated based on the index of the neighbor.
+Once the strong module starting from v is found (when lowLink[v] == index[v]), the function pops vertices from the stack and adds them to the module set until v is reached again. The module is then checked for maximality.
+To check maximality, the function iterates over the existing strong modules. If any module is a subset of the current module (includes(existingModule.begin(), existingModule.end(), module.begin(), module.end())), the current module is not maximal and is discarded.
+If the current module is maximal (isMaximal == true), and it does not include all vertices in the graph (module.size() != graph.size()), it is added to the strongModules vector.
+The function returns when all vertices have been visited.
+The findMaximalStrongModules function initializes the necessary data structures and iterates through each vertex to find maximal strong modules.
+Finally, in the main function, the user inputs the number of vertices and edges of the graph, followed by the edges themselves. The findMaximalStrongModules function is called, and the resulting maximal strong modules are displayed.
+
+
+
+Code for All Strong Modules:
+
+The function tarjanStrongModules is the same as in the previous code and implements the Tarjan's algorithm to find strong modules.
+The main difference is that this code does not check for maximality during the construction of the modules.
+Once a strong module is found, it is added to the strongModules vector without any maximality check.
+The function findStrongModules initializes the necessary data structures and iterates through each vertex to find all strong modules.
+In the main function, the user inputs the number of vertices and edges of the graph, followed by the edges themselves. The findStrongModules function is called, and all the resulting strong modules are displayed.
+In summary, the first code finds only the maximal strong modules by checking for maximality during the construction of the modules. The second code finds all the strong modules without considering maximality. The choice between the two codes depends on whether you specifically need the maximal strong modules or if you want to find all strong modules, including non-maximal ones.

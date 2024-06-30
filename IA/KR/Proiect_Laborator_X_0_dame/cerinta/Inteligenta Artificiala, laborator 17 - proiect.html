@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://irinaciocan.ro/inteligenta_artificiala/proiect.php -->
+<html lang="ro"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="./Inteligenta Artificiala, laborator 17 - proiect_files/stil.css">
+    <link rel="shortcut icon" type="image/x-icon" href="http://irinaciocan.ro/inteligenta_artificiala/favicon.ico">
+	<!--<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />-->
+	
+	<meta name="author" content="Irina Ciocan">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="./Inteligenta Artificiala, laborator 17 - proiect_files/jquery-3.1.1.js.download"></script>          
+	<script type="text/javascript" src="./Inteligenta Artificiala, laborator 17 - proiect_files/modernizr-custom.js.download"></script> 
+	<!--[if lt IE 9]>	
+		<script type="text/javascript" src="/biblioteca/html5shiv.js"></script>
+	<![endif]-->
+		<script type="text/javascript" src="./Inteligenta Artificiala, laborator 17 - proiect_files/functiile_mele.js.download"></script>
+	
+	<script type="text/javascript" src="./Inteligenta Artificiala, laborator 17 - proiect_files/cuprins.js.download"></script>
+
+
+<title>Inteligenta Artificiala, laborator 17 - proiect </title>
+
+
+ 
+<script type="text/javascript">
+<!--
+
+
+//pentru cookie-uri
+
+function getCookie(c_name)
+{
+var i,x,y,ARRcookies=document.cookie.split(";");
+for (i=0;i<ARRcookies.length;i++)
+  {
+  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+  x=x.replace(/^\s+|\s+$/g,"");
+  if (x==c_name)
+    {
+    return unescape(y);
+    }
+  }
+}
+
+function setCookie(c_name,value,exdays)
+{
+var exdate=new Date();
+exdate.setDate(exdate.getDate() + exdays);
+var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+document.cookie=c_name + "=" + c_value;
+}
+
+
+
+
+function st_pag_menu()
+{
+var url_pag=document.URL;
+var ind_menu_pag=url_pag.lastIndexOf("/");// http://irinaciocan.ro... => index 19
+var menu_pag=url_pag.substr(ind_menu_pag+1,url_pag.length-ind_menu_pag-5);//5=.html
+//alert(menu_pag);
+var opt_meniu=document.getElementById(menu_pag);
+if(opt_meniu)
+	//opt_meniu.style.color="black";
+	opt_meniu.style.boxShadow="0px 0px 0.2em inset black";
+}
+
+
+function pozitioneazaMeniu(offset) 
+		{
+			var $sidebar   = $("nav#meniu_sus");
+			$window    = $(window);
+			var margine_sus=$("header.principal").outerHeight();
+			if ($window.scrollTop() > margine_sus) 
+			//if ($sidebar.scrollTop() > 0) 
+			{
+					//$sidebar.css("top", $window.scrollTop()); //- offset.top);
+					$sidebar.css("position","fixed");
+					$sidebar.css("top","0px");
+				
+			} 
+			else 
+			{
+					$sidebar.css("position","absolute");
+					$sidebar.css("top",margine_sus+"px");
+
+			}
+		}
+
+
+
+
+$(document).ready(
+	function()
+	{
+			//pozitioneazaMeniu();
+			var $sidebar   = $("nav#meniu_sus");
+			$window    = $(window);
+			var offset_meniu = $sidebar.offset();
+			$(window).scroll(function(){
+				pozitioneazaMeniu(offset_meniu);
+			});	
+			$(".opt_meniu").attr("dataDeschis","inchis");
+			$(".opt_meniu").append("<img class='acces_submeniu' src='/imagini/triunghi_alb_mic_b_jos.png' alt=''>");
+			$(".opt_meniu").click(
+				function()
+				{
+					
+					//$plusulet=$(this).find("span.acces_submeniu");
+					//if($(".opt_meniu").attr("dataDeschis")=="inchis")
+					if($(this).attr("dataDeschis")=="inchis")
+					{
+						//$plusulet.text("-");
+						$elem_curent=$(this);
+						//$plusulet.text("+");
+						$(".opt_meniu").each(
+							function() {
+								if($(this)!=$elem_curent)
+								{
+									$(this).attr("dataDeschis","inchis");
+									$submeniu=$(this).next("ul");
+									$submeniu.css("display","none");
+									$(this).find(".acces_submeniu").attr("src",'/imagini/triunghi_alb_mic_b_jos.png');
+								}
+							}
+						);
+						$(this).attr("dataDeschis","deschis");		
+						$submeniu=$(this).next("ul");
+						$submeniu.css("display","block");
+						$(this).find(".acces_submeniu").attr("src",'/imagini/triunghi_alb_mic_b_sus.png');
+					}
+					else
+					{
+
+
+						$(this).attr("dataDeschis","inchis");
+						$submeniu=$(this).next("ul");
+						$submeniu.css("display","none");
+						$(this).find(".acces_submeniu").attr("src",'/imagini/triunghi_alb_mic_b_jos.png');
+
+					}
+
+				}
+			);
+	}
+);
+
+//daca ecranul e mai lat, expandeaza divurile in latime
+
+
+//-->
+</script>
+
+</head>
+<body onload="initial()">
+	<header class="principal">
+		<h1>Inteligenta Artificiala</h1>
+		<div id="nume_login">
+			<p class="alerta">Esti logat drept <span class="user">dragosp33</span></p> <a class="link_login" href="http://irinaciocan.ro/inteligenta_artificiala/logout.php">Logout</a><br>		</div>
+		<nav id="meniu_sus" style="position: fixed; top: 0px;">
+			<ul class="meniu_principal">
+
+
+				<li>
+					<a id="index" href="http://irinaciocan.ro/inteligenta_artificiala/index.php">Principal</a>
+				</li>
+				<li>
+					<a id="inregistrare" href="http://irinaciocan.ro/inteligenta_artificiala/inregistrare.php">Inregistrare</a>
+				</li>
+				<li>
+					<a style="color:red;" id="regulament" href="http://irinaciocan.ro/inteligenta_artificiala/regulament.php">Regulament</a>
+				</li>
+				<!--
+				<li>
+					<a id="barem_proiect" class="optiune_importanta" href="/inteligenta_artificiala/barem_proiect.php">Barem proiect</a>
+				</li>
+				-->
+				<li>
+					<button class="opt_meniu" id="laboratoare" datadeschis="inchis">Laboratoare<img class="acces_submeniu" src="./Inteligenta Artificiala, laborator 17 - proiect_files/triunghi_alb_mic_b_jos.png" alt=""></button>
+					<ul>
+						<!--<li><a id="lab0" href="/inteligenta_artificiala/lab0.php">Laborator 0<br></a></li>
+						<li><a id="lab1" href="/inteligenta_artificiala/lab1.php">Laborator 1<br></a></li>
+						<li><a id="lab2" href="/inteligenta_artificiala/lab2.php">Laborator 2<br></a></li>
+						<li><a id="lab3" href="/inteligenta_artificiala/lab3.php">Laborator 3<br></a></li>
+						<li><a id="lab4" href="/inteligenta_artificiala/lab4.php">Laborator 4<br></a></li>
+						<li><a id="lab5" href="/inteligenta_artificiala/lab5.php">Laborator 5<br></a></li>
+						<li><a id="lab6" href="/inteligenta_artificiala/lab6.php">Laborator 6<br></a></li>
+						<li><a id="lab7" href="/inteligenta_artificiala/lab7.php" style='color:red' title='pentru examen, va rog sa rezolvati toate exercitiile cu arbori'>Laborator 7<br></a></li>-->
+						
+						<li><a id="python-structuri-baza" href="http://irinaciocan.ro/inteligenta_artificiala/python-structuri-baza.php">Python 1</a></li>
+						<li><a id="python-comprehensions" href="http://irinaciocan.ro/inteligenta_artificiala/python-comprehensions.php">Python 2</a></li>
+						<li><a id="python-clase" href="http://irinaciocan.ro/inteligenta_artificiala/python-clase.php">Python 3</a></li>
+						
+						<li><a id="grafuri" href="http://irinaciocan.ro/inteligenta_artificiala/grafuri.php">Grafuri<br></a></li>
+						
+						<li><a id="lab8" href="http://irinaciocan.ro/inteligenta_artificiala/cautarea_bf.php">Cautarea BF<br></a></li>
+						<li><a id="lab9" href="http://irinaciocan.ro/inteligenta_artificiala/cautarea_df.php">Cautarea DF<br></a></li>
+						<li><a id="pb_blocuri" href="http://irinaciocan.ro/inteligenta_artificiala/pb_blocuri.php">Pb blocuri</a></li>
+						<li><a id="pb_canmis" href="http://irinaciocan.ro/inteligenta_artificiala/pb_canmis.php">Can mis</a></li>
+						
+						<li><a id="lab12" href="http://irinaciocan.ro/inteligenta_artificiala/lab12.php">UCS<br></a></li>
+						
+						<li><a id="a_star" href="http://irinaciocan.ro/inteligenta_artificiala/a_star.php">A*</a></li>
+						<li><a id="pb_8puzzle" href="http://irinaciocan.ro/inteligenta_artificiala/pb_8puzzle.php">8 puzzle</a></li>
+						<li><a id="teme-a-star" href="http://irinaciocan.ro/inteligenta_artificiala/teme-a-star.php">Teme A* (Info)</a></li>
+						<li><a id="exemple-teme-a-star" href="http://irinaciocan.ro/inteligenta_artificiala/exemple-teme-a-star.php">Exemple A*</a></li>
+						<li><a id="minimax-alpha-beta" href="http://irinaciocan.ro/inteligenta_artificiala/minimax-alpha-beta.php">Minimax|α-β</a></li>
+						<li><a id="teme_jocuri" href="http://irinaciocan.ro/inteligenta_artificiala/teme_jocuri.php">Exemple Jocuri</a></li>
+						<li><a id="tema_jocuri" href="http://irinaciocan.ro/inteligenta_artificiala/tema-jocuri.php">Tema Jocuri (Info)</a></li>
+						<li><a id="teme_a_star_mi" href="http://irinaciocan.ro/inteligenta_artificiala/teme_a_star_mi.php">Teme căutare (Mate-Info, CTI)</a></li>
+						<li><a id="teme_jocuri_mi" href="http://irinaciocan.ro/inteligenta_artificiala/teme_jocuri_mi.php">Teme jocuri (Mate-Info, CTI)</a></li>
+						<li><a id="recapitulare1" href="http://irinaciocan.ro/inteligenta_artificiala/recapitulare1.php">Recapitulare-1</a></li>
+						<!--
+						<li><a id="lab13" href="/inteligenta_artificiala/lab13.php">A*<br></a></li>
+						<li><a id="lab14" href="/inteligenta_artificiala/lab14.php">8-puzzle<br></a></li>
+						<li><a id="lab15" href="/inteligenta_artificiala/lab15.php">Jocuri<br></a></li>
+						-->
+					</ul>
+				</li>
+				<!--
+				<li>
+					<button class="opt_meniu" id="mi">M.I.</button>
+					<ul>
+						<li><a id="mi_lab1" href="/inteligenta_artificiala/mi_lab1.php">M.I. 1<br></a></li>
+						<li><a id="mi_lab2" href="/inteligenta_artificiala/mi_lab2.php">M.I. 2<br></a></li>
+						<li><a id="mi_lab3" href="/inteligenta_artificiala/mi_lab3.php">M.I. 3<br></a></li>
+						<li><a id="mi_lab4" href="/inteligenta_artificiala/mi_lab4.php">M.I. 4<br></a></li>
+						<li><a id="mi_lab5" href="/inteligenta_artificiala/mi_lab5.php">M.I. 5<br></a></li>
+						<li><a id="mi_lab6" href="/inteligenta_artificiala/mi_lab6.php">M.I. 6<br></a></li>
+						<li><a id="mi_lab7" href="/inteligenta_artificiala/mi_lab7.php">M.I. 7<br></a></li>
+						<li><a id="mi_lab9" href="/inteligenta_artificiala/mi_lab9.php">M.I. 9<br></a></li>
+					</ul>
+				</li>-->
+				<!--
+				<li>
+					<button class="opt_meniu" id="teme">Teme</button>
+					<ul>
+						<li><a id="tema1" href="/inteligenta_artificiala/tema1.php">Tema 1<br></a></li>
+						<li><a id="tema2" href="/inteligenta_artificiala/tema2.php">Tema 2<br></a></li>
+						<li><a id="tema3" href="/inteligenta_artificiala/tema3.php">Tema 3<br></a></li>
+						<li><a id="observatii_python" href="/inteligenta_artificiala/observatii_python.php">Observatii Python<br></a></li>
+					</ul>
+				</li>
+				-->
+				<li>
+					<a id="note" href="http://irinaciocan.ro/inteligenta_artificiala/note.php">Note<br></a>
+				</li>
+				<li>
+					<button class="opt_meniu" id="anexe" datadeschis="inchis">Anexe<img class="acces_submeniu" src="./Inteligenta Artificiala, laborator 17 - proiect_files/triunghi_alb_mic_b_jos.png" alt=""></button>
+					<ul>
+						<li><a id="cum-rezolvam-o-problema" href="http://irinaciocan.ro/inteligenta_artificiala/cum-rezolvam-o-problema.php">Cum rezolvam o problema?<br></a></li>
+						<li><a id="backup" href="http://irinaciocan.ro/biblioteca/backup.php?folder=inteligenta_artificiala">Backup<br></a></li>
+						<!--
+						<li><a id="debug" href="/inteligenta_artificiala/debug.php">Debug<br></a></li>
+						<li>
+							<a id="exemplu_tema" href="/inteligenta_artificiala/exemplu_tema.php">Exemplu tema</a>
+						</li>
+						<li>
+							<a id="modele_test_prolog" href="/inteligenta_artificiala/modele_test_prolog.php">Model test 1</a>
+						</li>
+						<li>
+							<a id="modele_test_algoritmi" href="/inteligenta_artificiala/modele_test_algoritmi.php">Model test 2</a>
+						</li>
+						<li>
+							<a id="interfata_grafica" href="/inteligenta_artificiala/interfata_grafica.php">Interfata</a>
+						</li>
+						-->
+					</ul>
+				</li>
+				<!--
+				<li>
+					<button class="opt_meniu" id="proiecte">Proiecte si exercitii</button>
+					<ul>
+						<li><a id="proiecte" href="/inteligenta_artificiala/proiecte.php">Proiecte JS</a></li>
+						<li><a id="exercitii_simple" href="/inteligenta_artificiala/exercitii_simple.php">Exercitii simple</a></li>
+						<li><a id="exercitii_pregatire_examen" href="/inteligenta_artificiala/exercitii_pregatire_examen.php">Exercitii-proiect</a></li>
+						<li><a id="exercitii_foarte_simple" href="/inteligenta_artificiala/exercitii_foarte_simple.php">Exercitii f. simple</a></li>
+						<li><a id="test_JS1" href="/inteligenta_artificiala/test_JS1.php">Test JS</a>
+						</li>
+					</ul>
+				</li>
+				-->	<!--
+
+	<li class="meniu_bord"><a id="seminar1" href="seminar1.php">Seminar 1</a></li>
+
+	<li  class="meniu_bord"><a id="bibliografie" href="bibliografie.php" style="color:red" title="pentru proiect!">Bibliografie</a></li>
+	<li><a id="exemplu_tema" href="exemplu_tema.php">Regulament teme</a></li>
+	<hr style="margin:0; padding:0; border:0; height:1px; color:grey; background-color:grey;"/>
+	<br/>-->
+
+			</ul>
+		</nav>
+	</header>
+<main><h5>(Deadline: -)</h5>
+<p style="font-style:italic;color:grey;">Daca nu sunteti logati exercitiile nu se mai afiseaza.</p><h2>Proiect</h2>
+
+
+<ol start="1" style="text-indent:0; font-weight:bold;"><section class="afis_exercitiu">
+				<form id="f82" action="http://irinaciocan.ro/inteligenta_artificiala/proiect.php" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="upload" id="upload" value="oac-oac">
+				<input type="hidden" name="upload_clasa" id="upload_clasa" value="laborator">
+				<input type="hidden" name="nr_clasa_up" id="nr_clasa_up" value="17">
+				<input type="hidden" name="student" id="student" value="dragosp33">
+
+				<div style="font-weight:normal">
+				<div class="exercitiu">
+				Identificator: <b>proiect</b><br>Se va implementa urmatorul joc:
+<ul>
+	<li>Jocul se desfasoara pe un grid NxN, notat cu T, cu 5≤N≤10 (utilizatorul va fi întrebat în legătură cu dimensiunea tablei). </li>
+	<li>În fiecare celulă din grid, va exista și câte o valoare de la 1 la 4, de exemplu, pentru N=7:
+	<figure>
+		<img class="w200" src="./Inteligenta Artificiala, laborator 17 - proiect_files/grid-numere.png" alt="grid_initial">
+	</figure>
+
+	</li><li>Este <i>turn based</i></li>
+	<li>Un jucator foloseste simbolul x si celalalt 0 ( o sa ii numim pe scurt jucatorii x si 0)</li>
+	<li>Jucatorul x pune simbolul primul pe tabla.</li>
+	<li>Initial fiecare jucator are o anumita suma de bani S. De exemplu S=10.</li>
+	<li>Mutarile sunt de doua feluri: 
+	<ul>
+		<li>punerea unui simbol intr-un loc gol, asta aduce cu sine si castigarea punctelor de pe patratica respectiva</li>
+		<li>saltul peste un simbol (in stilul jocului dame). Un jucator poate sari peste simbolul unui alt jucator doar pe diagonala, daca pe acea diagonala, imediat dupa simbolul jucatorului e un loc liber. Capturile se pot face in lant. Totusi, la urmatoarea mutare jucatorul opus nu are voie sa puna simbolul in locul de unde a fost luat. De exemplu, pentru x-ul marcat cu verde din imaginea de mai jos sunt marcate cu o culoare gălbuie locurile posibile în care poate face salt pentru a captura un 0:
+		<br>
+		<img class="w200" src="./Inteligenta Artificiala, laborator 17 - proiect_files/x-si-0-capturare-diagonala(capturari posibile).png" alt="mutare valida">
+		<p></p>
+		<p>capturile in lant costa in felul urmator : prima captura costa cat e scris pe primul patratel in care ajunge piesa care captureaza. La a 2-a captura se va aduna 2* cat scrie pe patratelul pe care a ajuns piesa, iar la a n-a captura se va aduna la cost n*costul_celulei. Daca un jucator nu are suficient cat sa acopere costul, nu poate realiza intregul lant de capturi (se va opri, unde isi permite).
+		</p></li>
+	</ul>
+	</li>
+	<li>Scopul jocului este sa se creeze o configuratie de 4 simboluri vecine toate intre ele doua cate doua (practic formand un "patrat" de simboluri). De exemplu: :
+		<br>
+		<img class="w200" src="./Inteligenta Artificiala, laborator 17 - proiect_files/x-si-0-capturare-diagonala(configuratie castigatoare).png" alt="configuratie castigatoare">
+	</li>	
+	<li>La afișarea gridului în consolă, se vor afișa în dreptul liniilor și coloanelor și numerele lor (indicii începând de la 0) ca să poată identifica utilizatorul mai ușor coordonatele locului în care vrea să mute.</li>
+
+</ul>
+<p>Deoarece se poate realiza o capturare multiplă, pentru mutările calculatorului se vor calcula, folosind o tehnica de căutare, toate modurile de capturare, ordonate dupa cost pentru a fi adaugate in lista de mutari.</p>
+<p>Estimarea costului se va face în doua moduri:</p>
+<ul>
+	<li>Prin observarae tablei de joc și calcularea unei masuri simple</li>
+	<li>Folosind o retea Bayesiana care calculeaza probabilitatea de castigare a jocului de catre calculator</li>
+</ul>
+				
+				<div style="background-color:#eae6f8 ; border: 1px dashed #67d3ea"><b>Upload:</b><label for="file">Alege fisier:</label> <input type="file" name="fisier82[]" id="fisier82" multiple="multiple"> <br>
+
+							<input type="hidden" name="numefis82" id="numefis82" value="proiect.txt">
+<input type="submit" value="Uploadeaza"><br>
+<br><b><i>Fisiere uploadate:</i></b> 
+-
+				  
+			   </div>
+
+
+			</div></div></form><br></section></ol><br><br><br>
+
+
+	</main>
+	<footer>
+		<div class="bara_jos">
+			<span id="final_pagina"></span> <a href="http://irinaciocan.ro/inteligenta_artificiala/proiect.php#">sus <img class="triunghi_mic" src="./Inteligenta Artificiala, laborator 17 - proiect_files/triunghi_alb_mic_b_jos.png" alt=""></a>
+			<a href="http://irinaciocan.ro/inteligenta_artificiala/termeni-si-conditii.php">Termeni si conditii</a>
+			<a href="http://irinaciocan.ro/inteligenta_artificiala/politica-de-confidentialitate.php">Politica de confidentialitate</a>
+		</div>
+
+		<p id="copyright"><small>Copyright © 2010-prezent Irina Ciocan (irinaciocan.ro, e-mail: irina.ciocan@gmail.com)</small></p>
+
+	</footer>
+	
+	
+
+</body></html>

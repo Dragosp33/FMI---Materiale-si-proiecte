@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1686131270 source:d:\1 facultate\aga\maximal_module\main.cpp
+	<iostream>
+	<vector>
+	<stack>
+	<algorithm>
+	<set>
+

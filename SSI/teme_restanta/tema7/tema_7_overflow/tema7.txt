@@ -1,0 +1,3 @@
+daca introducem o parola de lungime 14, orice input va fi considerat corect. Aceasta 
+vulnerabilitate este specifica c/c++ si se numeste buffer overflow. fiind o lungime de 14 caractere,
+bitii de la input vor sari pe stack peste instructiuni si va afisa coutul de la if.

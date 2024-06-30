@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1686146761 source:d:\1 facultate\aga\colocviu\main.cpp
+	<iostream>
+	<unordered_set>
+	<unordered_map>
+	<list>
+	<utility>
+	<limits>
+	"graphs.hpp"
+	"graphs.cpp"
+	"lists.hpp"
+	"lists.cpp"
+	<fstream>
+
+1682969514 d:\1 facultate\aga\colocviu\graphs.hpp
+	<unordered_set>
+	<unordered_map>
+	<list>
+	<utility>
+	<limits>
+
+1682958574 d:\1 facultate\aga\colocviu\graphs.cpp
+	"graphs.hpp"
+
+1682958574 d:\1 facultate\aga\colocviu\lists.hpp
+	<list>
+	<unordered_map>
+	<unordered_set>
+	<queue>
+	<iterator>
+
+1686146635 d:\1 facultate\aga\colocviu\lists.cpp
+	"lists.hpp"
+

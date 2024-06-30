@@ -1,0 +1,97 @@
+ex. 1:
+A: 4
+b: 2
+c: 5
+d: 1
+e: 6
+f: 3
+------------------------------------------------------------------------------------------------------
+
+EX 2:
+1 - confidentialitate; 2- disponibilitate; 3 - integritate; 4 - confidentialitate; 5 - integritate;
+
+primitive criptografice: AES, SHA;
+o primitvia criptografica care satisface confidentialitatea: algoritm de criptare AES sau Rijndael;
+o primitiva pentru integritate: o functie hash de tip SHA-3;
+-----------------------------------------------------------------------------------------------
+
+EX 3:
+1. Fals deoarece daca adversarul este probabilistic polinomial in timp nu are cum sa aiba la 
+dispozitie un timp infinit pentru criptanaliza.
+2. Adevarat – chiar daca nu este cea mai riguroasa metoda, adversarul poate oricand sa incerce 
+sa ghiceasca cheia
+3. Fals deoarece functiile exponentiale cresc mai repede decat cele polinomiale
+
+---------------------------------------------------------------------------------------------
+
+ex 4:
+
+o functie este neglijabila daca pt fiecare c constanta exista un intreg Nc a.i
+pt toate X > Nc, f(X) < 1/X^c. pt a arata ca este ne neglijabila este indeajuns sa gasim
+o singura valoare care incalca regula.
+
+1. f(n) = 2 ne-neglijabil
+2. f(n) = 1/2000; 1/2000 > 1/2^30 => ne-neglijabil;
+3. f(n) = 1/n^2000; 
+c = 2000; exista n0 a.i. oricare ar fi n>n0, f(n) <= 1/n^2000;
+n0 = 1; f(1) >= 1/n^2000; f(1) = 1; > 1/n^2000; 
+deci f(n) = 1/n^2000 - neneglijabila;
+
+
+4. f(n) = 1/2^(n/2)
+c = constanta; exista n0 a.i. n>n0; f(n) <= 1/n^c; 
+c = 1; => f(n) <= 1/n; n0 =? n0 = 2; n=2;
+c = 2 => f(n) <= 1/n^2; n0 = ? f(n) <= 1/n^2; f(4) = 1/4 <= 1/16; f(2) = 1/2 <= 1/4;
+c = 3 => f(n) <= 1/n^3; etc; 
+Nu putem gasi o polinomiala la numitor care sa creasca mai repede decat exponentiala, astfel 
+incat valoarea fractiei sa fie mai mare
+observam ca pentru orice constanta c exista n0 a.i oricare ar fi n>=n0, f(n) <= 1/n^c ; deci 
+f(n) = 1/2^(n/2) neglijabila;
+
+
+5. f(n) = f1(n) + f2(n)
+f1 si f2 neglijabil => f(n) neglijabila;
+
+6. f(n) = f1(n) + f2(n); daca una dintre functii este ne-neglijabila, atunci si suma lor
+este ne-neglijabila.
+
+
+------------------------------------------------------------------------------------
+
+ex 5:
+
+
+in practica, securitatea "perfecta" nu exista, intrucat, desi cu o sansa mica:
+adversarul poate ghici cheia/mesajul prin incercari. 
+O schema este sigura daca orice adversar care dispune de timp polinomial
+in n (parametrul de securitate) efectueaza un atac cu succes numai cu o
+probabilitate neglijabila. Astfel, securitatea computationala este sigura in fata
+adversarilor care executa atacul intr un interval de timp realizabil.
+
+exemplu discutie: 
+numere semiprime - RSA 250 are 250 de cifre in baza 10; fiind un nr semiprim (avand doar 2 numere prime ca
+factori). Stiind cele 2 nr prime, numarul semiprim se poate afla usor; Invers, in schimb, este improbabil.
+A fost nevoie de 2700 ani de putere computationala, avand in vedere procesoare in valoare de peste 
+2.500 euro;
+---------------------------------------------------------------------------------------------
+
+ex 6:
+
+o cheie pe 256 biti poate avea 2^256 combinatii;
+un calculator cu 2^30 combinatii pe secunda ar avea nevoie de 2^226 secunde; 
+deci aprox. 3 * 10^60 ani;
+cu siguranta nu este eficient.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

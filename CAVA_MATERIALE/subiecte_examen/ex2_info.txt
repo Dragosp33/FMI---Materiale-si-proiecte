@@ -1,0 +1,4 @@
+functie care extrage mai intai patchurile din fisierul txt si apoi le adauga la train;
+model
+la final, 
+functie care extrage mai intai patchurile din fisierul txt si apoi le adauga la test si da predict;

@@ -1,0 +1,6 @@
+for each (i, j)  with i != j, we have the formula:
+φ = (abs(pi-pj) - dij ^ 2)
+
+
+pana acum ex3_last_test.py cea mai buna solutie, fara velocitate
+iar ex3_last_test_update.py - cea mai buna solutie cu velocitate

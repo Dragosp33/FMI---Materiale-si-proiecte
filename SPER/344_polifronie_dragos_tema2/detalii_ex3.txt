@@ -1,0 +1,2 @@
+ex3_last_test.py - implementeaza distanta minima intre agenti, dar fara velocitate
+in ex3_last_test_update.py am introdus si velocitatea ca termen pt pastrarea formatiei.
